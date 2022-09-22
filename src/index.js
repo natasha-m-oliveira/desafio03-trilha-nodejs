@@ -44,7 +44,7 @@ app.put('/repositories/:id', (request, response) => {
 
   repositories[repositoryIndex] = repository;
 
-  return response.json(repository);
+  return response.status(201).json(repository);
 });
 
 app.delete('/repositories/:id', (request, response) => {
@@ -76,7 +76,7 @@ app.post('/repositories/:id/like', (request, response) => {
 
   const likes = ++repositories[repositoryIndex].likes;
 
-  return response.json({ likes });
+  return response.status(201).json({ likes });
 });
 
 module.exports = app;
